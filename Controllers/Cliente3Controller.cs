@@ -37,5 +37,19 @@ namespace WebApplication1.API.Controllers
             await _clienteRepository.InsertCliente(cliente);
             return Ok("");
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Clientes (int id)
+        {
+            await _clienteRepository.DeleteCliente(id);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Cliente (Cliente cliente)
+        {
+            await _clienteRepository.UpdateCliente(cliente);
+            return Ok();
+        }
     }
 }
